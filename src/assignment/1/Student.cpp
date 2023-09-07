@@ -2,12 +2,21 @@
 #include "Student.h"
 
 #include <utility>
+#include <iomanip>
 
-Student::Student(std::string fullName) : mFullName(std::move(fullName)), mScore(0.0),
-                                         mDropped(false) {
+using namespace std;
+
+Student::Student(
+    int id,
+    std::string fullName
+) : mId(id), mFullName(std::move(fullName)), mGradePoint(0.0), mDropped(false) {
 }
 
-const std::string & Student::getFullName() const {
+int Student::getId() const {
+    return mId;
+}
+
+const std::string &Student::getFullName() const {
     return mFullName;
 }
 
@@ -15,12 +24,12 @@ void Student::setFullName(const std::string &fullName) {
     mFullName = fullName;
 }
 
-double Student::getScore() const {
-    return mScore;
+double Student::getGradePoint() const {
+    return mGradePoint;
 }
 
-void Student::setScore(double score) {
-    mScore = score;
+void Student::setGradePoint(double gradePoint) {
+    mGradePoint = gradePoint;
 }
 
 bool Student::isDropped() const {
@@ -31,6 +40,11 @@ void Student::drop() {
     mDropped = true;
 }
 
-void Student::reEntry() {
-    mDropped = false;
+void Student::display() const {
+    cout << "[Student] "
+         << "ID = " << getId() << "; "
+         << "Fullname = " << getFullName() << "; "
+         << "Grade Point = " << std::fixed << std::setprecision(2) << getGradePoint() << "; "
+         << "Status = " << (isDropped() ? "DROPPED" : "CURRENT")
+         << endl;
 }

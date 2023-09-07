@@ -5,21 +5,29 @@
 
 /**
  * This class maintains all the information about a student.
+ * Note that the default value "grade point" is 0.
  * @author James Chan
  */
 class Student {
 public:
     /**
      * Creates a student.
+     * @param id The ID of this student
      * @param fullName The full name of this student
      */
-    explicit Student(std::string fullName);
+    Student(int id, std::string fullName);
+
+    /**
+     * Returns the ID of this student.
+     * @return the ID of this student.
+     */
+    [[nodiscard]] int getId() const;
 
     /**
      * Returns the full name of this student.
-     * @return The full name
+     * @return the full name of this student.
      */
-    const std::string & getFullName() const;
+    [[nodiscard]] const std::string &getFullName() const;
 
     /**
      * Sets the student's fullname.
@@ -28,22 +36,22 @@ public:
     void setFullName(const std::string &fullName);
 
     /**
-     * Returns the score of this student.
-     * @return The score
+     * Returns the grade point of this student.
+     * @return the grade point of this student.
      */
-    double getScore() const;
+    [[nodiscard]] double getGradePoint() const;
 
     /**
-     * Sets the score of this student.
-     * @param score
+     * Sets the grade point of this student.
+     * @param gradePoint
      */
-    void setScore(double score);
+    void setGradePoint(double gradePoint);
 
     /**
      * Whether this student is dropped.
      * @return true if this students has dropped; false otherwise
      */
-    bool isDropped() const;
+    [[nodiscard]] bool isDropped() const;
 
     /**
      * This student drops.
@@ -51,13 +59,14 @@ public:
     void drop();
 
     /**
-     * This student re-entries, which will turn "mDropped" into false.
+     * Outputs this student info to console.
      */
-    void reEntry();
+    void display() const;
 
 private:
+    int mId;
     std::string mFullName;
-    double mScore;
+    double mGradePoint;
     bool mDropped;
 };
 
