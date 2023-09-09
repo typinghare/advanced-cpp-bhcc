@@ -43,12 +43,12 @@ public:
 
     /**
      * Sets the grade point of this student.
-     * @param gradePoint
+     * @param gradePoint The grade point to set
      */
     void setGradePoint(double gradePoint);
 
     /**
-     * Whether this student is dropped.
+     * Whether this student has dropped.
      * @return true if this students has dropped; false otherwise
      */
     [[nodiscard]] bool isDropped() const;

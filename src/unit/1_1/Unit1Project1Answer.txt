@@ -1,0 +1,5 @@
+1. In previous C++ courses, you have used the std namespaces exclusively. In the "namespaces" assignment, you needed to create namespaces of your own.  Explain why these namespaces were required.
+
+2. In many development environments it is unacceptable to use the "using namespace" protocol in a header or module. Explain why using a "using namespace" in a header or module is bad practice and how you should implement special cases instead.
+
+3. Give a situation where a creating a namespace would be unavoidable.

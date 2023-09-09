@@ -1,0 +1,10 @@
+1. What are the dangers of using old-fashioned C-type pointers? How do smart pointers correct these limitations?
+
+
+2. What are the limitations of a unique_ptr?
+
+
+3. How do you know if you should create a unique_ptr or a shared_ptr? (What helps you decide which to use?)
+
+
+4. What happens if you pass a unique_ptr to a function that needs to change the value in the pointer?

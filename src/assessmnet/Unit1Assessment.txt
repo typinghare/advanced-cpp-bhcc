@@ -1,0 +1,28 @@
+What is the purpose of using namespaces?
+
+
+What is a constructor initializer, and why should your class use one?
+
+
+What is type inference?
+
+
+When using the keyword auto to declare the return type from a function, a copy instead of a reference is created.  What is the difference, and why might you use one over the other?
+
+
+C++ provides a built-in std::invalid_exception type, but it is considered preferable to create your own exceptions.  Why?
+
+
+Name and explain at least one advantage of using a smart pointer.
+
+
+What is the difference between copy list initialization and direct list initialization?
+
+
+When creating a class in C++, setters are often used to validate input.  What is the best way to handle an invalid input in a setter, and why?
+
+
+What is the difference between string and string_view?
+
+
+What is a raw string literal, and how is it denoted (an example)?

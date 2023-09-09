@@ -46,6 +46,9 @@ public:
     void viewDroppedStudents();
 
 private:
+    /**
+     * A vector to store all students.
+     */
     std::vector<Student> mStudentVector;
 };
 
