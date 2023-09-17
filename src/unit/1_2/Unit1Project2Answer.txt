@@ -1,10 +1,25 @@
 1. What are the dangers of using old-fashioned C-type pointers? How do smart pointers correct these limitations?
-
+Answer: Smart pointers automate memory management, eliminating the need for manual de-allocation. They ensure exception safety, even in the presence of errors. This results in code that's more readable, maintainable, and free from memory leaks.
 
 2. What are the limitations of a unique_ptr?
-
+Answer: Limitations of unique_ptr: (1) A unique_ptr cannot be copied. Therefore, we can only pass the reference of unique_ptr to a function. (2) One unique_ptr has only one ownership, any assignments on a unique_ptr lead to compiler errors.
 
 3. How do you know if you should create a unique_ptr or a shared_ptr? (What helps you decide which to use?)
-
+Answer: (1) If an object should have a single, exclusive owner, unique_ptr is a good choice; otherwise, we should use shared_ptr. (2) When I want to prevent shared access to an object, which is an important resource, I should use unique_ptr to increase the leve of safety.
 
 4. What happens if you pass a unique_ptr to a function that needs to change the value in the pointer?
+Answer: If the function takes the reference of a unique_ptr, then it is good; otherwise, it will throw an error saying "call to implicitly-deleted copy constructor of ...". Here is an example:
+
+    // It is good because this function takes the reference of unique_str
+    void appendOk(std::unique_ptr<std::string> &string) {
+        string->append("Ok");
+    }
+
+    std::unique_ptr<std::string> unique_string{std::make_unique<std::string>("")};
+    appendOk(unique_string);
+    std::cout << *unique_string << std::endl;
+
+The output of this example is "Ok".
+
+[References]
+https://www.scaler.com/topics/cpp-unique-ptr/

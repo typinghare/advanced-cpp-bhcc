@@ -1,6 +1,6 @@
 
 /**
- * @note Requirements for Unit 1 Project 2 (Smart Pointers).
+ * @note Requirements for Unit 1 Project ZhuojianChenCh11HW1 (Smart Pointers).
  * @link https://docs.google.com/document/d/1SbZNrvsrHTx5uF-wHuhnwOWeKoj8uQPJ76Yc6_dP4Z0/edit
  *
  * Create a program that demonstrates the difference between smart pointers and raw pointers. Use

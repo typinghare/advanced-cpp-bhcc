@@ -15,7 +15,7 @@ public:
      * @param student The student to add
      * @return the student added
      */
-    Student &addStudent(std::string &fullName);
+    Student &addStudent(std::string_view &fullName);
 
     /**
      * Drops a student from the database.

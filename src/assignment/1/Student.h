@@ -15,7 +15,7 @@ public:
      * @param id The ID of this student
      * @param fullName The full name of this student
      */
-    Student(int id, std::string fullName);
+    Student(int id, std::string_view &fullName);
 
     /**
      * Returns the ID of this student.
@@ -27,13 +27,13 @@ public:
      * Returns the full name of this student.
      * @return the full name of this student.
      */
-    [[nodiscard]] const std::string &getFullName() const;
+    [[nodiscard]] const std::string_view &getFullName() const;
 
     /**
      * Sets the student's fullname.
      * @param fullName The student's fullname
      */
-    void setFullName(const std::string &fullName);
+    void setFullName(const std::string_view &fullName);
 
     /**
      * Returns the grade point of this student.
@@ -65,7 +65,7 @@ public:
 
 private:
     int mId;
-    std::string mFullName;
+    std::string_view mFullName;
     double mGradePoint;
     bool mDropped;
 };

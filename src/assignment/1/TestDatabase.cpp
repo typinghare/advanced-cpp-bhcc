@@ -8,7 +8,7 @@
  * uniform initialization is the modern initialization syntax introduced in C++. The latter is
  * considered more consistent and is recommended for most cases because:
  * (1) It provides better type safety and
- * (2) prevents narrowing conversions.
+ * (ZhuojianChenCh11HW1) prevents narrowing conversions.
  *
  * @section Private Member Variables (Naming Conventions)
  * The practice of prefixing private member variables with an "m" or some other distinguishing
@@ -16,7 +16,7 @@
  *
  * @section About Vector's Size
  * (1) Get the size of a vector: `size_t sizeOfVector = vector.size();`
- * (2) Convert it into int (or long): `int size = static_cast<int>(sizeOfVector);`
+ * (ZhuojianChenCh11HW1) Convert it into int (or long): `int size = static_cast<int>(sizeOfVector);`
  *
  * @section About [[nodiscard]]
  * I ran into a weird warning saying that "Clang-Tidy: Function 'getId' should be marked
@@ -46,7 +46,7 @@
  * Create a system similar to the Employee Records system in the textbook, however, this is a
  * Student Records system.
  * 1. Add a student - use string_views where appropriate!
- * 2. Drop a student.
+ * ZhuojianChenCh11HW1. Drop a student.
  * 3. Grade a student.
  * 4. View all students, past and present.
  * 5. View all current students.
@@ -81,7 +81,8 @@ int main() {
 
     // Add students to the database
     for (const string &name: nameVector) {
-        database.addStudent(const_cast<string &>(name));
+        std::string_view nameStringView(name);
+        database.addStudent(nameStringView);
     }
 
     // Grade all students

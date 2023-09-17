@@ -1,5 +1,26 @@
-1. In previous C++ courses, you have used the std namespaces exclusively. In the "namespaces" assignment, you needed to create namespaces of your own.  Explain why these namespaces were required.
+1. In previous C++ courses, you have used the std namespaces exclusively. In the "namespaces" assignment, you needed to create namespaces of your own. Explain why these namespaces were required.
+Answer: There are several advantages for using namespaces: (1) Namespaces allow programmers organize and modularize in a good manner. With namespaces, we can clearly know which library does a function or class comes from even though we are using a bunch of libraries. (2) With the growth of a project, the number of functions and classes will increase, and hence programmers are prone to run into name conflicts. Namespaces is a good language feature that helps us avoid that. (3) Using namespaces increase the readability and maintainability of code.
 
 2. In many development environments it is unacceptable to use the "using namespace" protocol in a header or module. Explain why using a "using namespace" in a header or module is bad practice and how you should implement special cases instead.
+Answer: Header files are designed to place declarations of classes and functions, and applying "using namespace" my bring about ambiguous and unclear. Moreover, some experienced developers on YouTube suggest that we should avoid using "using namespace" anywhere because it is not considered to be a good practices. For instance, if we apply "using namespace std;" and code "to_string(var)" in the code block, we must do a big refactor if we want to introduce a new library which also contains "to_string" function. For me personally, I decided not to use this feature in the future.
 
 3. Give a situation where a creating a namespace would be unavoidable.
+Answer: Creating a namespace is unavoidable if we want to create two functions that have the same name and parameters. Here is an instance:
+
+    namespace A {
+        void func() {
+            std::cout << "I am A." << std::endl;
+        }
+    }
+
+    namespace B {
+        void func() {
+            std::cout << "I am B." << std::endl;
+        }
+    }
+
+    // Usage
+    A::func();
+    B::func();
+
+In this example, we have two different functions "func" with the same function name and parameters. We put it in two difference namespaces, so that we can use them  in the same scope.

@@ -1,6 +1,6 @@
 #include "Database.h"
 
-Student &Database::addStudent(std::string &fullName) {
+Student &Database::addStudent(std::string_view &fullName) {
     size_t studentId = mStudentVector.size();
     Student student(static_cast<int>(studentId), fullName);
     mStudentVector.push_back(student);

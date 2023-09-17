@@ -1,28 +1,44 @@
-What is the purpose of using namespaces?
+1. What is the purpose of using namespaces?
+Answer: Namespaces serve as a solution to mitigate issues stemming from name conflicts. It is common to run into a situation where two distinct functions happen to have the same names and parameters. To address this problem, we can encapsulate these functions within separate namespaces and use "::" before the functions.
+
+2. What is a constructor initializer, and why should your class use one?
+Answer: constructor initializer, also known as initializer list, is used in initializing the data members of a class. It simplifies the assignments for class fields in the constructor and increases code readability.
+
+3. What is type inference?
+Answer: Type inference refers to the automatic deduction of the data type of an expression. In C++, three keywords are associated with type inference: (1) auto: It allows the compiler to infer the type of the expression in an assignment statement. For instance, In the statement "auto a = 3.5;", the variable "a" is inferred as a double. (2) typeid(): It is used to get the type of variables. For example, "typeid(a).name()" returns a string of the type of variable "a". (3) decltype. It inspects the declared type of an entity or the type of an expression.
+
+4. When using the keyword auto to declare the return type from a function, a copy instead of a reference is created. What is the difference, and why might you use one over the other?
+Answer: Returns a copy means a new instance of the object is returned, and any modifications made to the return value do not affect the original object. I will use "auto" as the return type when I want to avoid others changing the value of the return value; otherwise, I prefer to return the reference because it is more efficient and takes up less memory.
+
+5. C++ provides a built-in std::invalid_exception type, but it is considered preferable to create your exceptions. Why?
+Answer: (As far as I know, std::invalid_exception does not exist in C++, I guess it means std::invalid_argument.) Personally speaking, I like using the built-in std::invalid_exception. However, I can recall that when I read the Spring (a heavyweight framework written in Java) source code, there were a bunch of exception classes, and most of them were used one or several times. I come up with several reasons: (1) Creating exception classes for certain situations makes it clear and readable. (2) Custom exception types are strongly typed and thus are easier to be caught in catch blocks. (3) Creating specific exceptions complies with the philosophy of object-oriented programming, and thus the code will be easier to maintain.
+
+6. Name and explain at least one advantage of using a smart pointer.
+Answer: Smart pointers have many advantages, and the most significant one is that we do not have to exhaust ourselves to manage memory, that is, to delete references when we no longer use them. Apart from that, smart pointers are exception safety because they are deallocated when an exception occurs. Moreover, it improves the code readability and maintainability.
+
+7. What is the difference between copy list initialization and direct list initialization?
+Answer: When we use copy list initialization [ int x = {5}; ], the compiler will find a suitable constructor to initialize the object; Direct list initialization [ int x{5}; ] is more restrictive because the compiler will find the only constructor with exactly corresponding arguments.
+
+8. When creating a class in C++, setters are often used to validate input.  What is the best way to handle an invalid input in a setter, and why?
+Answer: I believe that throwing an exception is the best way to handle an invalid input in a setter. In this way, we provide a clear indication of the problem to who invokes the setter function. Therefore, the callers can deal with the error/exception with try-catch blocks.
+
+9. What is the difference between string and string_view?
+Answer: "string" is a dynamic and mutable class that owns and manages an array of chars, while "string_view" is a wrapper class for the string class. "string_view" only contains a pointer to a string, and is thus commonly used to create an immutable string (or avoid the string being copied and waste memory).
 
 
-What is a constructor initializer, and why should your class use one?
+10. What is a raw string literal, and how is it denoted (an example)?
+Answer: A raw string literal is denoted by placing an "R" before the opening double quote of the string. It preserves all escape sequences in the string. For instance:
 
+    std::string str = "One \n Two";
+    std::string rawStr = R"(One \n Two)";
 
-What is type inference?
+    std::cout << str << std::endl;
+    std::cout << rawStr << std::endl;
 
+The output of this program snippet is:
 
-When using the keyword auto to declare the return type from a function, a copy instead of a reference is created.  What is the difference, and why might you use one over the other?
+    One
+     Two
+    One \n Two
 
-
-C++ provides a built-in std::invalid_exception type, but it is considered preferable to create your own exceptions.  Why?
-
-
-Name and explain at least one advantage of using a smart pointer.
-
-
-What is the difference between copy list initialization and direct list initialization?
-
-
-When creating a class in C++, setters are often used to validate input.  What is the best way to handle an invalid input in a setter, and why?
-
-
-What is the difference between string and string_view?
-
-
-What is a raw string literal, and how is it denoted (an example)?
+In this example, The "\n" escape sequence in "rawStr" is not parsed, instead, it is output without modification.

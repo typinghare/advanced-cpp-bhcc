@@ -1,26 +1,25 @@
 
 #include "Student.h"
 
-#include <utility>
 #include <iomanip>
 
 using namespace std;
 
 Student::Student(
     int id,
-    std::string fullName
-) : mId(id), mFullName(std::move(fullName)), mGradePoint(0.0), mDropped(false) {
+    std::string_view &fullName
+) : mId(id), mFullName(fullName), mGradePoint(0.0), mDropped(false) {
 }
 
 int Student::getId() const {
     return mId;
 }
 
-const std::string &Student::getFullName() const {
+const std::string_view &Student::getFullName() const {
     return mFullName;
 }
 
-void Student::setFullName(const std::string &fullName) {
+void Student::setFullName(const std::string_view &fullName) {
     mFullName = fullName;
 }
 

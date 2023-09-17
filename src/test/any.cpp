@@ -1,15 +1,14 @@
-
 #include <iostream>
+#include <initializer_list>
 
-using namespace std;
+void appendOk(std::unique_ptr<std::string> string) {
+    string->append("Ok");
+}
 
 int main() {
-    const int SIZE = 30;
-    int myArray[SIZE]{};
-
-    for (int i : myArray) {
-        cout << i << endl;
-    }
+    std::unique_ptr<std::string> unique_string{std::make_unique<std::string>("")};
+    appendOk(unique_string);
+    std::cout << *unique_string << std::endl;
 
     return 0;
 }

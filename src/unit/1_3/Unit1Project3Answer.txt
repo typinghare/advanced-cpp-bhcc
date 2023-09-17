@@ -1,10 +1,52 @@
-1. What are the dangers of using old-fashioned C-type pointers? How do smart pointers correct these limitations?
+1. Why is it "dangerous" to use old-fashioned enums?
+Answer: The old-fashioned enums may cause some potential issues: (1) Typed unsafe: the old-fashioned enums are implicitly converted to integers, which may lead to unintended type conversions or comparisons. (2) Old-fashioned enums are in the global scope, which can easily incur name conflicts and is hard to maintain. (3) Old-fashioned enums do not allow specifying the underlying type, making it hard to control the signedness of values.
 
+2. Why is it better to use an enum than to declare a series of integer (or short) values?
+Answer: First of all, enums increase the readability and maintainability of the code. Secondly, using enums allow the compiler to check if the usage of enums are valid. This helps programmers find the potential issues at compile time. Thirdly, strongly typed enums can be scoped, and thus can prevent naming conflicts and improve code organization.
 
-2. What are the limitations of a unique_ptr?
+3. How would you declare a strongly typed enumerator "Color" so that RED had the value R when printed and YELLOW had the value Y when printed?
+Answer: The strongly typed enumerator can be declared as follows:
 
+    // Strongly typed enum with char type as underlying type
+    enum class Color : char {
+        RED = 'R',
+        YELLOW = 'Y'
+    };
 
-3. How do you know if you should create a unique_ptr or a shared_ptr? (What helps you decide which to use?)
+    // In main() function:
+    std::cout << static_cast<char>(Color::RED) << std::endl;
+    std::cout << static_cast<char>(Color::YELLOW) << std::endl;
 
+4. Give an example of how you would use a strongly typed enumerator in a switch statement.
+Answer: The example is as follows:
 
-4. What happens if you pass a unique_ptr to a function that needs to change the value in the pointer?
+    // Strongly typed enum for months
+    enum class Month {
+        JANUARY,
+        FEBRUARY,
+        MARCH,
+        APRIL,
+        // ... more months
+    };
+
+    // Returns the name of a month
+    std::string getMonthString(Month month) {
+        switch (month) {
+            case Month::JANUARY:
+                return "January";
+            case Month::FEBRUARY:
+                return "February";
+            case Month::MARCH:
+                return "March";
+            case Month::APRIL:
+                return "April";
+        }
+    }
+
+    // Demo
+    Month month = Month::FEBRUARY;
+    std::cout << getMonthString(month) << std::endl;
+
+[References]
+https://docwiki.embarcadero.com/RADStudio/Alexandria/en/Strongly_Typed_Enums_(C%2B%2B11)
+https://www.programiz.com/cpp-programming/enumeration
