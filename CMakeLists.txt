@@ -62,8 +62,11 @@ add_executable(unit_1_1 src/unit/1_1/testNamespaces.cpp src/unit/1_1/chinaNamesp
 add_executable(unit_1_2 src/unit/1_2/Unit1Project2.cpp)
 add_executable(unit_1_3 src/unit/1_3/Unit1Project3.cpp)
 add_executable(unit_4_1 src/unit/4_1/Unit4Project1.cpp)
-add_executable(unit_4_2 src/unit/4_2/Unit4Project2.cpp)
+add_executable(unit_4_2 src/unit/4_2/TestWidgets.cpp
+        src/unit/4_2/settings.h
+        src/unit/4_2/binaryOperations.cpp)
 
 # TESTS
 add_executable(test_any src/test/any.cpp)
 add_executable(test_bitwise_discussion src/test/bitwise_discussion/Spiral.cpp)
+add_executable(bitwise_on_int src/test/bitwise_on_int/BitwiseOnInt.cpp)

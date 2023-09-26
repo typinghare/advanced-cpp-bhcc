@@ -9,9 +9,8 @@ using std::byte;
  * @param switches The combinations of switches of the widget
  */
 byte createWidget(short switches) {
-    byte res{0};
-
-    return res;
+    // ?
+    return (byte) switches;
 }
 
 /**
@@ -29,7 +28,7 @@ bool validateSwitch(byte widget, Switch _switch) {
  * @param os The output stream
  */
 void printByte(byte a, std::ostream &os) {
-    os << static_cast<int>(a);
+//    os << static_cast<int>(a);
 }
 
 /**

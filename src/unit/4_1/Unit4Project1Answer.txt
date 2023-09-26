@@ -1,0 +1,8 @@
+1. Give two possible reasons for storing the true/false answers as bits in an 8-bit number instead of an array.
+Answer:
+
+2. To double a score you *could* multiply by two.  Why would you use bit manipulation instead? Why would you NOT use bit manipulation instead?
+Answer:
+
+3. Thinking about how you managed to randomly ask your questions yet not repeat them, what is the advantage of using a byte for this vs. other methods.  Explain in detail.
+Answer:

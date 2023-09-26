@@ -1,3 +1,7 @@
 # CLION
 .gitignore
 /cmake-build-debug
+
+*.zip
+
+.DS_Store

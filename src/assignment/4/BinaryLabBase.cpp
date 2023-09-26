@@ -9,7 +9,7 @@ using namespace std;
 */
 void printByte(byte a, ostream &os) {
     for (int i = 7; i >= 0; i--) {
-        os << ((static_cast<int>(a) >> i) & 1);
+        os << ((static_cast<char>(a) >> i) & 1);
     }
 }
 

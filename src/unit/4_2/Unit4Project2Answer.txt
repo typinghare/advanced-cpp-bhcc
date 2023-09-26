@@ -1,0 +1,2 @@
+1. This project demonstrated the use of flags or switches as input parameters to a function.  The Unit 4 Readings and Media also discussed the use of flags as input parameters to a constructor.  Explain in your own words, the use of byte values as flags, and the possible value of using them for this.
+Answer:
