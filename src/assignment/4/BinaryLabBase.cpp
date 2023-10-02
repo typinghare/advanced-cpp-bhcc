@@ -52,7 +52,7 @@ char createMask(short iflag) {
 
 /**
  * @brief function to determine if a bit is set
- * @param iflag which bit (from right, count from 0) to test
+ * @param iflag which bit (from right, count from 0) to jest
  * @return true if set
 */
 bool isSet(short iflag, char byteString) {
@@ -98,11 +98,11 @@ byte convertByte(short value) {
 }
 
 int main() {
-//    // test getValue()
+//    // jest getValue()
 //    std::cout << static_cast<char>(getValue(byte{97})) << std::endl;
 //    printByte(static_cast<byte>(getValue(byte{97})), cout);
 //
-//    // test convertByte()
+//    // jest convertByte()
 //    std::cout << std::endl << static_cast<char>(convertByte(65)) << std::endl;
 //    printByte(convertByte(65), cout);
 

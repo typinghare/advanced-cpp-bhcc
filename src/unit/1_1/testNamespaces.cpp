@@ -10,7 +10,7 @@
  * of each function in the different namespaces individually, as well as a call to demoNamespaces.
  *
  * @note changelog
- * 1. Added a global function "whereAmI" in testNamespaces.cpp; a corresponding test is added to the
+ * 1. Added a global function "whereAmI" in testNamespaces.cpp; a corresponding jest is added to the
  * main function.
 */
 

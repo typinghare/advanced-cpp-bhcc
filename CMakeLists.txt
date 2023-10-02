@@ -70,3 +70,16 @@ add_executable(unit_4_2 src/unit/4_2/TestWidgets.cpp
 add_executable(test_any src/test/any.cpp)
 add_executable(test_bitwise_discussion src/test/bitwise_discussion/Spiral.cpp)
 add_executable(bitwise_on_int src/test/bitwise_on_int/BitwiseOnInt.cpp)
+
+# Finals
+add_executable(final
+        src/final/src/entity/Category.cpp
+        src/final/src/entity/Category.h
+        src/final/src/entity/Subcategory.h
+        src/final/src/entity/Subcategory.cpp
+        src/final/src/entity/Record.cpp
+        src/final/src/entity/Record.h
+        src/final/src/entity/Date.cpp
+        src/final/src/entity/Date.h
+        src/final/src/main.cpp
+)

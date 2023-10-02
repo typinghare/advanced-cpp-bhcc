@@ -7,7 +7,7 @@
  * Be sure to implement proper style and naming conventions, as well as abstraction and code reuse
  * principles.
  *
- * Don't forget to refactor the main() function into a TestShapes.cpp file to test your new classes.
+ * Don't forget to refactor the main() function into a TestShapes.cpp file to jest your new classes.
  */
 
 #include <iostream>
@@ -81,7 +81,7 @@ int main() {
         std::cout << std::endl;
     } while (shapeIndex > 0);
 
-    // Extra test: Amorphous
+    // Extra jest: Amorphous
     auto *amorphous = dynamic_cast<Amorphous *>(shapeArray[4]);
     amorphous->playSound(std::string_view("This is a piece of custom sound."));
 
