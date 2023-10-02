@@ -82,4 +82,6 @@ add_executable(final
         src/final/src/entity/Date.cpp
         src/final/src/entity/Date.h
         src/final/src/main.cpp
+        src/final/src/util/jest.h
+        src/final/src/util/jest.cpp
 )
