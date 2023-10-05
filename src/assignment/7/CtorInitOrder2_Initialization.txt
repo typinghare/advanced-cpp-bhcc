@@ -1,0 +1,11 @@
+Steps of initializations:
+1. MyClass constructor.
+2. Bar constructor. During the instantiation of MyClass, and before the MyClass constructor code block is executed, a Bar instance, which is in the initializer list, is to be created.
+3. Foo constructor. Bar extends Foo, and thus before the Bar constructor code block is executed, a Foo instance is to be created.
+4. Upon the Foo constructor code block is being executed, the Bar constructor code block is being executed. Subsequently, the MyClass constructor code block will be executed.
+
+With analysis above, we can conclude that the output strings are in the following order:
+
+Foo::mValue = 1.2
+Bar value = 1.2
+MyClass::mValue = 1.2

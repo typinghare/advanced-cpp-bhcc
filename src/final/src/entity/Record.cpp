@@ -13,15 +13,15 @@ unsigned int Record::getId() const {
     return id;
 }
 
-Date Record::getDate() {
+Date Record::getDate() const {
     return date;
 }
 
-Category &Record::getCategory() {
+Category &Record::getCategory() const {
     return category;
 }
 
-Subcategory &Record::getSubcategory() {
+Subcategory &Record::getSubcategory() const {
     return subcategory;
 }
 

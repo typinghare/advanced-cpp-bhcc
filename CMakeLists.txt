@@ -57,6 +57,14 @@ add_executable(assignment_4
         src/assignment/4/BinaryLabBase.cpp
 )
 
+add_executable(assignment_7
+        src/assignment/7/user/User.cpp
+        src/assignment/7/user/User.h
+        src/assignment/7/user/SuperUser.cpp
+        src/assignment/7/user/SuperUser.h
+        src/assignment/7/user/TestUsers.cpp
+)
+
 # UNITS
 add_executable(unit_1_1 src/unit/1_1/testNamespaces.cpp src/unit/1_1/chinaNamespace.h src/unit/1_1/americaNamespace.h)
 add_executable(unit_1_2 src/unit/1_2/Unit1Project2.cpp)
@@ -84,4 +92,5 @@ add_executable(final
         src/final/src/main.cpp
         src/final/src/util/jest.h
         src/final/src/util/jest.cpp
+        src/final/src/entity/entities.h
 )

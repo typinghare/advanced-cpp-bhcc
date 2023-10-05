@@ -13,6 +13,14 @@ private:
     Subcategory &subcategory;
     double amount;
 public:
+    /**
+     * Creates a record.
+     * @param id The ID of this record.
+     * @param date The creation date.
+     * @param category The category this record belongs to.
+     * @param subcategory The subcategory this record belongs to.
+     * @param amount The amount of this record (in US dollars).
+     */
     Record(
         unsigned int id,
         Date date,
@@ -21,16 +29,34 @@ public:
         double amount
     );
 
+    /**
+     * Returns the ID of this record.
+     * @return the ID of this record.
+     */
     [[nodiscard]] unsigned int getId() const;
 
-    Date getDate();
+    /**
+     * Returns the creation date.
+     * @return the creation date.
+     */
+    [[nodiscard]] Date getDate() const;
 
-    std::string_view getName();
+    /**
+     * Returns the category this record belongs to.
+     * @return the category this record belongs to.
+     */
+    [[nodiscard]] Category & getCategory() const;
 
-    Category &getCategory();
+    /**
+     * Returns the subcategory this record belongs to.
+     * @return the subcategory this record belongs to.
+     */
+    [[nodiscard]] Subcategory &getSubcategory() const;
 
-    Subcategory &getSubcategory();
-
+    /**
+     * Returns the amount of this record.
+     * @return the amount of this record.
+     */
     [[nodiscard]] double getAmount() const;
 };
 

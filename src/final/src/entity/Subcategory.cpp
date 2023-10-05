@@ -16,6 +16,6 @@ std::string_view Subcategory::getName() {
     return name;
 }
 
-Category &Subcategory::getCategory() {
+Category &Subcategory::getCategory() const {
     return category;
 }
