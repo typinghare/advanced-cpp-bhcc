@@ -6,7 +6,7 @@ There are two overloading constructors of MyClass. Let's say:
     // This is constructor #2
     MyClass::MyClass(double value) : mValue(value) { ... };
 
-In the main function, the argument for instantiating is a string, and thus constructor #1 is called. Then, since "MyClass(stringToDouble(value))" is in the initializer list, constructor #2 is called. Because C++ executes the constructor block code after initializer list gets done, we can confirm that the output strings are in the following order:
+In the main function, the argument for instantiating is a string, and thus constructor #1 is called. Then, since "MyClass(stringToDouble(value))" is in the initializer list, constructor #2 is called. Because C++ executes the constructor block code after the initializer list gets done, we can confirm that the output strings are in the following order:
 
 MyClass double constructor
 MyClass string_view constructor

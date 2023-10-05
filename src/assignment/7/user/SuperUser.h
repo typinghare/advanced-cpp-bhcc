@@ -19,9 +19,12 @@ public:
     void changePrivileges(std::byte _privileges);
 
     // overload all comparison operators (based on the privileges)
-    // Thanks to binary representation, if a person has one higher privilege, then their privilege
-    // number is greater. For instance, if a person's privilege number is 0b100, they can ADD, and
-    // by definition,
+
+    // I find it hard to establish a criteria after wandering for ten minutes. Here's my attempt:
+    // If superuser A has all privileges that superuser B has, A >= B; only if superuser A has an
+    // extra privilege that superuser B doesn't have, A > B. Likewise for the <= and <.
+    // If superuser A's privilege number equals to superuser B's privilege number, then A == B;
+    // otherwise, A != B.
     bool operator>(const SuperUser &superUser);
 
     bool operator<(const SuperUser &superUser);

@@ -35,8 +35,8 @@ int main() {
     std::cout << superUserOnHeap->getUserName() << std::endl;           // Patrick
     std::cout << (short) superUserOnHeap->getPrivileges() << std::endl; // 10
 
-    // Test comparison operators
-    std::cout << (superUserOnStack < *superUserOnHeap) << std::endl;    // 1
+    // Test comparison operators #1
+    std::cout << (superUserOnStack < *superUserOnHeap) << std::endl;    // 0
     std::cout << (superUserOnStack >= *superUserOnHeap) << std::endl;   // 0
     std::cout << (superUserOnStack != *superUserOnHeap) << std::endl;   // 1
 
@@ -51,6 +51,11 @@ int main() {
         superUserOnHeap->getPrivileges() ^ SuperUser::PRIVILEGE_EDIT
     );
     std::cout << (short) superUserOnHeap->getPrivileges() << std::endl; // 8
+
+    // Test comparison operators #2
+    // Now superUserOnStack has ADD, READ, DELT, while superUserOnHeap has DELT
+    std::cout << (superUserOnStack >= *superUserOnHeap) << std::endl;   // 1
+    std::cout << (superUserOnStack > *superUserOnHeap) << std::endl;    // 1
 
     // Delete variables on the heap
     delete userOnHeap;

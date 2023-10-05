@@ -27,11 +27,21 @@ void SuperUser::changePrivileges(std::byte _privileges) {
 }
 
 bool SuperUser::operator>(const SuperUser &superUser) {
-    return privileges > superUser.privileges;
+    return (privileges & superUser.privileges) == superUser.privileges
+           && privileges > superUser.privileges;
 }
 
 bool SuperUser::operator<(const SuperUser &superUser) {
-    return privileges < superUser.privileges;
+    return (privileges & superUser.privileges) == privileges
+           && privileges < superUser.privileges;
+}
+
+bool SuperUser::operator>=(const SuperUser &superUser) {
+    return (privileges & superUser.privileges) == superUser.privileges;
+}
+
+bool SuperUser::operator<=(const SuperUser &superUser) {
+    return (privileges & superUser.privileges) == privileges;
 }
 
 bool SuperUser::operator!=(const SuperUser &superUser) {
@@ -40,12 +50,4 @@ bool SuperUser::operator!=(const SuperUser &superUser) {
 
 bool SuperUser::operator==(const SuperUser &superUser) {
     return privileges == superUser.privileges;
-}
-
-bool SuperUser::operator<=(const SuperUser &superUser) {
-    return privileges <= superUser.privileges;
-}
-
-bool SuperUser::operator>=(const SuperUser &superUser) {
-    return privileges >= superUser.privileges;
 }
