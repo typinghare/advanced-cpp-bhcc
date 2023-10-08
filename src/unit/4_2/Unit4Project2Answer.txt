@@ -1,2 +1,20 @@
-1. This project demonstrated the use of flags or switches as input parameters to a function.  The Unit 4 Readings and Media also discussed the use of flags as input parameters to a constructor.  Explain in your own words, the use of byte values as flags, and the possible value of using them for this.
-Answer:
+1. This project demonstrated the use of flags or switches as input parameters to a function. The Unit 4 Readings and Media also discussed the use of flags as input parameters to a constructor.  Explain in your own words, the use of byte values as flags, and the possible value of using them for this.
+Answer: Using byte values as flags is to use byte values to represent a series of boolean values (flags). In some cases, we have many booleans to be passed to a function. But too many booleans will make the code ugly and hard to read. Instead of doing so, we can use a byte value to represent the boolean values and only pass the byte to the function. A common instance is the permissions of files. Assume that there are three types of permissions:
+
+    IS_READABLE = 0b1;
+    IS_WRITABLE = 0b10;
+    IS_EXECUTABLE = 0b100;
+
+Instead of writing a function like this:
+
+    void setFilePermission(File file, bool isReadable, bool isWritable, bool isExecutable) { }
+
+We can pass a byte value as input:
+
+    void setFilePermission(File file, byte permissions) { }
+
+The permissions byte value can be easily created using bitwise or:
+
+    byte permissions = 0;
+    permissions |= IS_READABLE;
+    permissions |= IS_EXECUTABLE;

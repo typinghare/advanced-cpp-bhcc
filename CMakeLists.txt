@@ -17,7 +17,8 @@ add_executable(assignment_1
         src/assignment/2/ZhuojianChenCh11HW4/DisplayCard.cppm
         src/unit/4_1/Unit4Project1.cpp
         src/test/bitwise_discussion/Spiral.cpp
-        src/test/bitwise_discussion/TurnAround.cpp)
+        src/test/bitwise_discussion/TurnAround.cpp
+        src/test/dependency_injection/TestDependencyInjection.cpp)
 
 add_executable(assignment_2_1
         src/assignment/2/ZhuojianChenCh11HW1/testStoreShelf.cpp
@@ -78,6 +79,7 @@ add_executable(unit_4_2 src/unit/4_2/TestWidgets.cpp
 add_executable(test_any src/test/any.cpp)
 add_executable(test_bitwise_discussion src/test/bitwise_discussion/Spiral.cpp)
 add_executable(bitwise_on_int src/test/bitwise_on_int/BitwiseOnInt.cpp)
+add_executable(dependency_injection src/test/dependency_injection/classes.h src/test/dependency_injection/TestDependencyInjection.cpp)
 
 # Finals
 add_executable(final
