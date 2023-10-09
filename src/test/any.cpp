@@ -3,19 +3,27 @@
 
 using namespace std;
 
-class Base {
+class Outer {
+private:
+    int foo;
 public:
-    virtual ~Base() {}
+    explicit Outer(int foo) : foo(foo) {}
 
-    virtual void Foo() {};
-};
-
-class Derived : public Base {
-public:
-    ~Derived() {}  // Will also be virtual
-    void Foo() {}; // Will also be virtual
+    class Inner {
+    public:
+        int bar(const Outer &outer) {
+            // Access outer class private properties
+            return outer.foo * 2;
+        }
+    };
 };
 
 int main() {
+    Outer outer{5};
+    Outer::Inner inner;
+
+    std::cout << inner.bar(outer) << std::endl;
+
     return 0;
 }
+
