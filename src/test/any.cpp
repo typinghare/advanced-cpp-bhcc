@@ -10,14 +10,14 @@ template<typename T>
 constexpr T PI{T{3.1415926}};
 
 int main() {
-    // Using variable templates
+    // 1. Using variable templates
     double pi{PI<double>};
     double circumference = 3 * pi;
 
-    // Using static_cast
+    // 2. Using static_cast
     double num1 = 2 * static_cast<float>(E);
 
-    // Using (float)
+    // 3. Using (float)
     float num2 = 2 * (float) E;
 
     std::cout << circumference << std::endl;
