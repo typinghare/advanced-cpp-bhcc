@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 /**
  * @warning All stuffs in this header file are still under construction.
  * @brief A wrapper class containing a value for testing.
@@ -18,18 +17,6 @@ public:
 
     void toBe(T expectedValue) const;
 };
-
-//template
-//class Jest<short>;
-//
-//template
-//class Jest<int>;
-//
-//template
-//class Jest<double>;
-//
-//template
-//class Jest<std::string>;
 
 template<typename T>
 class ToBeException : public std::exception {

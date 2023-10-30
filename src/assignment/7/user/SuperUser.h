@@ -8,6 +8,8 @@ class SuperUser : public User {
 private:
     std::byte privileges;
 public:
+    SuperUser();
+
     SuperUser(std::string userName, std::string password, int userID, std::byte privileges);
 
     ~SuperUser();
@@ -17,6 +19,20 @@ public:
     std::string toString() override;
 
     void changePrivileges(std::byte _privileges);
+
+    /**
+     * @brief Overloading >>.
+     * @param in In stream.
+     * @return The given in stream.
+     */
+    friend std::istream &operator>>(std::istream &is, SuperUser &superUser);
+
+    /**
+     * @brief Overloading <<.
+     * @param os Out stream.
+     * @return The given out stream.
+     */
+    friend std::ostream &operator<<(std::ostream &os, SuperUser &superUser);
 
     // overload all comparison operators (based on the privileges)
 

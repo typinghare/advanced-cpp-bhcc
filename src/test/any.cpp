@@ -2,29 +2,19 @@
 
 using namespace std;
 
-// Normal variable
-constexpr double E = 2.71828;
-
-// Variable templates
-template<typename T>
-constexpr T PI{T{3.1415926}};
-
 int main() {
-    // 1. Using variable templates
-    double pi{PI<double>};
-    double circumference = 3 * pi;
+    // 1. Count repeating numbers
+    std::vector<int> numbers = {1, 0, 2, 0, 1, 0, 2, 1, 0};
+    std::cout << std::count(numbers.begin(), numbers.end(), 0) << std::endl;
 
-    // 2. Using static_cast
-    double num1 = 2 * static_cast<float>(E);
+    // 2. Count repeating characters of a string
+    std::string str = "abcbcacbcbccababbaa";
+    std::cout << std::count(str.begin(), str.end(), 'b') << std::endl;
 
-    // 3. Using (float)
-    float num2 = 2 * (float) E;
-
-    std::cout << circumference << std::endl;
-    std::cout << num1 << std::endl;
-    std::cout << num2 << std::endl;
-
-    return 0;
+    // 3. Count with a unary predicate
+    auto predicate = [](int number) {
+        return number != 0;
+    };
+    std::cout << std::count_if(numbers.begin(), numbers.end(), predicate) << std::endl;
 }
-
 

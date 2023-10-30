@@ -3,6 +3,8 @@
 #include <utility>
 #include "User.h"
 
+SuperUser::SuperUser() : User(), privileges(std::byte{0}) {
+}
 
 SuperUser::SuperUser(
     std::string userName,
@@ -50,4 +52,17 @@ bool SuperUser::operator!=(const SuperUser &superUser) {
 
 bool SuperUser::operator==(const SuperUser &superUser) {
     return privileges == superUser.privileges;
+}
+
+std::istream &operator>>(std::istream &is, SuperUser &superUser) {
+    int privileges;
+    is >> static_cast<User &>(superUser) >> privileges;
+    superUser.privileges = std::byte(privileges);
+
+    return is;
+}
+
+std::ostream &operator<<(std::ostream &os, SuperUser &superUser) {
+    return os << static_cast<User &>(superUser)
+              << static_cast<int>(superUser.privileges);
 }

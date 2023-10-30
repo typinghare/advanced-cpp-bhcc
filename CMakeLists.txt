@@ -14,11 +14,7 @@ add_executable(assignment_1
         src/assignment/1/Database.cpp
         src/assignment/1/Database.h
         src/assignment/1/TestDatabase.cpp
-        src/assignment/2/ZhuojianChenCh11HW4/DisplayCard.cppm
-        src/unit/4_1/Unit4Project1.cpp
-        src/test/bitwise_discussion/Spiral.cpp
-        src/test/bitwise_discussion/TurnAround.cpp
-        src/test/dependency_injection/TestDependencyInjection.cpp)
+)
 
 add_executable(assignment_2_1
         src/assignment/2/ZhuojianChenCh11HW1/testStoreShelf.cpp
@@ -64,6 +60,16 @@ add_executable(assignment_7
         src/assignment/7/user/SuperUser.cpp
         src/assignment/7/user/SuperUser.h
         src/assignment/7/user/TestUsers.cpp
+        src/assignment/7/user/Secure.h
+        src/assignment/7/user/Secure.cpp
+)
+
+add_executable(assignment_11
+        src/assignment/11/Student.h
+        src/assignment/11/Student.cpp
+        src/assignment/11/Application.h
+        src/assignment/11/Application.cpp
+        src/assignment/11/TestApplication.cpp
 )
 
 # UNITS

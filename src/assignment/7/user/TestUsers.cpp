@@ -1,6 +1,7 @@
 
 #include "User.h"
 #include "SuperUser.h"
+#include "Secure.h"
 
 /**
  * @brief Test User and SuperUser.
@@ -56,6 +57,28 @@ int main() {
     // Now superUserOnStack has ADD, READ, DELT, while superUserOnHeap has DELT
     std::cout << (superUserOnStack >= *superUserOnHeap) << std::endl;   // 1
     std::cout << (superUserOnStack > *superUserOnHeap) << std::endl;    // 1
+
+    // Test Secure (encrypt and decrypt)
+    std::string message = "James";
+    std::string key = "JumpHigher";
+    std::string encryptedMessage = encrypt(message, key);
+    std::cout << "Encrypted message: " << encryptedMessage << std::endl;
+    std::cout << "Original message: " << decrypt(encryptedMessage, key) << std::endl;
+
+    // Output a user
+    std::cout << "User on stack: " << userOnStack << std::endl;
+    std::cout << "User on heap: " << *userOnHeap << std::endl;
+
+    // New user
+//    User user = User();
+//    std::cout << "Input: ";
+//    std::cin >> user;
+//    std::cout << user.getUserName() << std::endl;
+
+    std::cout << "Super user on stack: " << superUserOnStack << std::endl;
+//    SuperUser superUser = SuperUser();
+//    std::cin >> superUser;
+//    std::cout << (int) superUser.getPrivileges() << std::endl;
 
     // Delete variables on the heap
     delete userOnHeap;

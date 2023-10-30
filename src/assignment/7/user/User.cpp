@@ -1,5 +1,11 @@
 #include "User.h"
+#include "Secure.h"
 #include <sstream>
+
+const std::string User::KEY = "MySecretKey";
+
+User::User() : userID(0) {
+}
 
 User::User(
     std::string userName,
@@ -34,4 +40,20 @@ std::string User::toString() {
        << "Password: " << password;
 
     return ss.str();
+}
+
+std::istream &operator>>(std::istream &is, User &user) {
+    std::string encryptedUserName, encryptedPassword;
+    is >> encryptedUserName >> encryptedPassword >> user.userID;
+    user.userName = decrypt(encryptedUserName, User::KEY);
+    user.password = decrypt(encryptedPassword, User::KEY);
+
+    return is;
+}
+
+
+std::ostream &operator<<(std::ostream &os, const User &user) {
+    return os << encrypt(user.userName, User::KEY) << " "
+              << encrypt(user.password, User::KEY) << " "
+              << user.userID << " ";
 }

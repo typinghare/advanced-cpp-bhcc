@@ -5,11 +5,15 @@
 #include <utility>
 
 class User {
+protected:
+    static const std::string KEY;
 private:
     std::string userName;
     std::string password;
     int userID;
 public:
+    User();
+
     User(std::string userName, std::string password, int userID);
 
     ~User();
@@ -34,6 +38,20 @@ public:
      * @brief Returns user ID.
      */
     [[nodiscard]] int getUserID() const;
+
+    /**
+     * @brief Overloading >>.
+     * @param in In stream.
+     * @return The given in stream.
+     */
+    friend std::istream &operator>>(std::istream &is, User &user);
+
+    /**
+     * @brief Overloading <<.
+     * @param os Out stream.
+     * @return The given out stream.
+     */
+    friend std::ostream &operator<<(std::ostream &os, const User &user);
 
     /**
      * @brief Returns a string of description of this user.
