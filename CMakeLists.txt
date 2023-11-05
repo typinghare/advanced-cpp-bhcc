@@ -80,6 +80,19 @@ add_executable(unit_4_1 src/unit/4_1/Unit4Project1.cpp)
 add_executable(unit_4_2 src/unit/4_2/TestWidgets.cpp
         src/unit/4_2/settings.h
         src/unit/4_2/binaryOperations.cpp)
+add_executable(unit_7_1
+        src/unit/7_1/Matrix.cpp
+        src/unit/7_1/Matrix.h
+        src/unit/7_1/TestMatrix.cpp
+)
+
+add_executable(unit_7_2
+        src/unit/7_2/Cylinder.cpp
+        src/unit/7_2/Cylinder.h
+        src/unit/7_2/CylinderGrid.cpp
+        src/unit/7_2/CylinderGrid.h
+        src/unit/7_2/TestCylinderGrid.cpp
+)
 
 # TESTS
 add_executable(test_any src/test/any.cpp)
