@@ -1,24 +1,35 @@
-#ifndef ADVANCED_CPP_BHCC_ITERATOR_H
-#define ADVANCED_CPP_BHCC_ITERATOR_H
+#ifndef ADVANCED_CPP_BHCC_INTITERATOR_H
+#define ADVANCED_CPP_BHCC_INTITERATOR_H
 
-class Iterator {
+#include <iostream>
+
+class IntIterator {
 public:
-    explicit Iterator(int size) { data = new int[size]; }
+    IntIterator() { curr = nullptr; }
 
-    ~Iterator() { delete data; }
+    explicit IntIterator(int *begin) : curr(begin) {}
 
-    void set(int index, int value) { data[index] = value; }
+    int *getCurr() { return curr; }
 
-    int get(int index) { return data[index]; }
+    /**
+     * Overload pre-increment operator
+     */
+    IntIterator &operator++() {
+        curr += 1;
+        return *this;
+    }
 
-    // Overload of post-increment operator
-    int operator++(int) {
-        Iterator copy(*this);
-
+    /**
+     * @brief Overload of post-increment operator
+     */
+    IntIterator operator++(int) {  // NOLINT(*)
+        IntIterator copy(*this);
+        curr += 1;
+        return copy;
     }
 
 private:
-    int *data;
+    int *curr;
 };
 
 #endif

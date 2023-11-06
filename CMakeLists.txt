@@ -95,7 +95,8 @@ add_executable(unit_7_2
 )
 
 # TESTS
-add_executable(test_any src/test/any.cpp)
+add_executable(test_any src/test/any.cpp
+        src/test/IntIterator.h)
 add_executable(test_bitwise_discussion src/test/bitwise_discussion/Spiral.cpp)
 add_executable(bitwise_on_int src/test/bitwise_on_int/BitwiseOnInt.cpp)
 add_executable(dependency_injection src/test/dependency_injection/classes.h src/test/dependency_injection/TestDependencyInjection.cpp)
