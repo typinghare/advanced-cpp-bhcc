@@ -1,0 +1,8 @@
+#ifndef ADVANCED_CPP_BHCC_STUDENTCOURSE_H
+#define ADVANCED_CPP_BHCC_STUDENTCOURSE_H
+
+class StudentCourse {
+
+};
+
+#endif
