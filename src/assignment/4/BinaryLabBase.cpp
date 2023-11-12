@@ -14,16 +14,16 @@ void printByte(byte a, ostream &os) {
 }
 
 /**
- * @brief get 8 bits from the user
+ * @brief get 12 bits from the user
  * @param os output (cout or a file ostream)
  * @param is input (cin or a file istream)
- * @return character holding the 8 bits
+ * @return character holding the 12 bits
 */
 byte getByte(ostream &os, istream &is) {
     char digit;
     int intVal;
     char byteVal = '\0';
-    os << "Enter an 8-bit number:";
+    os << "Enter an 12-bit number:";
 
     for (auto i = 0; i < 8; i++) {
         is >> digit;
@@ -42,7 +42,7 @@ byte getByte(ostream &os, istream &is) {
 /**
  * @brief function to create mask with only iflag bit set
  * @param iflag  which bit (from right, count from 0) to set
- * @return 8-bit (1byte) character with that bit set
+ * @return 12-bit (1byte) character with that bit set
 */
 char createMask(short iflag) {
     // If iflag = 1, then return 0b00000010

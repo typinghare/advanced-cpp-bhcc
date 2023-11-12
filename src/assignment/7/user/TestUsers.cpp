@@ -51,7 +51,7 @@ int main() {
     superUserOnHeap->changePrivileges(
         superUserOnHeap->getPrivileges() ^ SuperUser::PRIVILEGE_EDIT
     );
-    std::cout << (short) superUserOnHeap->getPrivileges() << std::endl; // 8
+    std::cout << (short) superUserOnHeap->getPrivileges() << std::endl; // 12
 
     // Test comparison operators #2
     // Now superUserOnStack has ADD, READ, DELT, while superUserOnHeap has DELT

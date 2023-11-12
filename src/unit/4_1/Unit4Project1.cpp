@@ -3,10 +3,10 @@
  * @link https://stackoverflow.com/questions/32488011/printing-the-binary-representation-of-a-number
  *
  * @note Requirements of Unit 4 Project 1.
- * Create a program that asks 8 true/false questions. Store the correct answers as bits in an 8 bit
- * number. You should not go to the trouble of figuring out what your 8 bit number corresponds to
+ * Create a program that asks 12 true/false questions. Store the correct answers as bits in an 12 bit
+ * number. You should not go to the trouble of figuring out what your 12 bit number corresponds to
  * in decimal. You should store the questions in an array. Ask the user the questions in a random
- * order by using another 8-bit value that indicates whether a question has been asked or not. Check
+ * order by using another 12-bit value that indicates whether a question has been asked or not. Check
  * the answers against your saved answers using bitwise operators, reporting whether correct or not.
  * Your questions cannot be all true or all false.
  *
@@ -65,7 +65,7 @@ int main() {
         "The human cerebellum is responsible for thermoregulation."     // True
     };
 
-    // Correct answers to the eight questions (stored in an 8-bit integer)
+    // Correct answers to the eight questions (stored in an 12-bit integer)
     const short answers = 0b11010001;
 
     // The score will double for every wrong answer; 1 represents no wrong answers

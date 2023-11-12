@@ -72,6 +72,14 @@ add_executable(assignment_11
         src/assignment/11/TestApplication.cpp
 )
 
+add_executable(assignment_12
+        src/assignment/12/Hashtable.cpp
+        src/assignment/12/Hashtable.h
+        src/assignment/12/TestStudentCourse.cpp
+        src/assignment/12/StudentCourse.cpp
+        src/assignment/12/StudentCourse.h
+)
+
 # UNITS
 add_executable(unit_1_1 src/unit/1_1/testNamespaces.cpp src/unit/1_1/chinaNamespace.h src/unit/1_1/americaNamespace.h)
 add_executable(unit_1_2 src/unit/1_2/Unit1Project2.cpp)
