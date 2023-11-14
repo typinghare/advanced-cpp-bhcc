@@ -36,7 +36,7 @@ void trim(std::string &str, const std::string &whitespace = " \t\r") {
  * @param path The path of the file.
  * @return A student wrapped by a unique pointer.
  */
-std::unique_ptr<Student> read(const std::string &path) {
+std::shared_ptr<Student> read(const std::string &path) {
     std::string absolutePath = std::filesystem::canonical(std::filesystem::absolute(path));
     std::ifstream inputFile(absolutePath);
 
@@ -53,7 +53,7 @@ std::unique_ptr<Student> read(const std::string &path) {
     trim(line);
 
     // Create a student course
-    auto student = std::make_unique<Student>(line);
+    auto student = std::make_shared<Student>(line);
     HashTable &courseHashtable = student->getCourseHashTable();
 
     // Continue to read the courses
@@ -76,6 +76,23 @@ std::unique_ptr<Student> read(const std::string &path) {
 }
 
 /**
+ * @brief Write the information of a group of students.
+ * @param path The path of the output file.
+ * @param studentVector The students to output.
+ */
+void write(const std::string &path, const std::vector<std::shared_ptr<Student>> &studentVector) {
+    std::string absolutePath = std::filesystem::absolute(path);
+    std::ofstream outputFile(absolutePath);
+
+    for (const auto &student: studentVector) {
+        student->print(outputFile);
+        outputFile << std::endl;
+    }
+
+    outputFile.close();
+}
+
+/**
  * @brief Assignment 12_dated.
  * @reference https://www.geeksforgeeks.org/set-in-cpp-stl/
  * @reference https://en.wikipedia.org/wiki/Hash_table
@@ -87,21 +104,24 @@ std::unique_ptr<Student> read(const std::string &path) {
  * the variables (including the class member variables) on the stack or on the heap. I choose to
  * store on the heap to keep it save (so that the data will not suddenly disappear for no reason).
  * I asked ChatGPT the same question and it told me that just feel free to use smart pointers and I
- * don't have to manage the memory by myself. Finally in the `read()` method I leveraged unique
+ * don't have to manage the memory by myself. Finally in the `read()` method I leveraged the share
  * pointer and it worked fine.
  */
 int main() {
-    // Personal test (test files are under "../assets/assignment_12")
-    auto studentCourse1 = read("../assets/assignment_12/CSStudent_courses.txt");
-    auto studentCourse2 = read("../assets/assignment_12/CSStudent_courses1.txt");
+    // [MY TEST] (test files are under "../assets/assignment_12")
+    auto student1 = read("../assets/assignment_12/CSStudent_courses.txt");
+    auto student2 = read("../assets/assignment_12/CSStudent_courses1.txt");
+    std::string outputPath = "../assets/assignment_12/output.txt";
 
-    // Real test
-//    auto studentCourse1 = read("CSStudent_courses.txt");
-//    auto studentCourse2 = read("CSStudent_courses1.txt");
+    // [PROFESSOR TEST]
+//    std::unique_ptr<Student> student1 = read("CSStudent_courses.txt");
+//    std::unique_ptr<Student> student2 = read("CSStudent_courses1.txt");
 
-    studentCourse1->print(std::cout);
-    std::cout << std::endl;
-    studentCourse2->print(std::cout);
+    // Write to a file
+    std::vector<std::shared_ptr<Student>> studentVector;
+    studentVector.push_back(student1);
+    studentVector.push_back(student2);
+    write(outputPath, studentVector);
 
     return 0;
 }
