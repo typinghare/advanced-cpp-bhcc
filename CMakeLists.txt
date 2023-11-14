@@ -72,12 +72,20 @@ add_executable(assignment_11
         src/assignment/11/TestApplication.cpp
 )
 
+add_executable(assignment_12_dated
+        src/assignment/12_dated/Hashtable.cpp
+        src/assignment/12_dated/Hashtable.h
+        src/assignment/12_dated/TestStudentCourse.cpp
+        src/assignment/12_dated/StudentCourse.cpp
+        src/assignment/12_dated/StudentCourse.h
+)
+
 add_executable(assignment_12
-        src/assignment/12/Hashtable.cpp
-        src/assignment/12/Hashtable.h
-        src/assignment/12/TestStudentCourse.cpp
-        src/assignment/12/StudentCourse.cpp
-        src/assignment/12/StudentCourse.h
+        src/assignment/12/HashTable.cpp
+        src/assignment/12/HashTable.h
+        src/assignment/12/Student.cpp
+        src/assignment/12/Student.h
+        src/assignment/12/TestStudent.cpp
 )
 
 # UNITS

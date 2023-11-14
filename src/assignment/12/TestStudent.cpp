@@ -1,4 +1,4 @@
-#include "StudentCourse.h"
+#include "Student.h"
 #include <fstream>
 #include <string>
 #include <filesystem>
@@ -34,8 +34,9 @@ void trim(std::string &str, const std::string &whitespace = " \t\r") {
 /**
  * @brief Reads a text file and returns a StudentCourse instance.
  * @param path The path of the file.
+ * @return A student wrapped by a unique pointer.
  */
-std::unique_ptr<StudentCourse> read(const std::string &path) {
+std::unique_ptr<Student> read(const std::string &path) {
     std::string absolutePath = std::filesystem::canonical(std::filesystem::absolute(path));
     std::ifstream inputFile(absolutePath);
 
@@ -52,8 +53,8 @@ std::unique_ptr<StudentCourse> read(const std::string &path) {
     trim(line);
 
     // Create a student course
-    auto studentCourse = std::make_unique<StudentCourse>(line);
-    Hashtable &courseHashtable = studentCourse->getCourseHashtable();
+    auto student = std::make_unique<Student>(line);
+    HashTable &courseHashtable = student->getCourseHashTable();
 
     // Continue to read the courses
     while (std::getline(inputFile, line)) {
@@ -64,18 +65,19 @@ std::unique_ptr<StudentCourse> read(const std::string &path) {
         for (auto it = sp.begin() + 2; it != sp.end(); it++) {
             // The first three character is the key, the following number is the value
             std::string key = it->substr(0, 3), value = it->substr(3);
-            std::vector<int> *numberVector = courseHashtable.setIfAbsent(key);
-            numberVector->push_back(std::stoi(value));
+            std::set<int> *courseNumberSet = courseHashtable.setIfAbsent(key);
+            courseNumberSet->insert(std::stoi(value));
         }
     }
 
     inputFile.close();
 
-    return studentCourse;
+    return student;
 }
 
 /**
- * @brief Assignment 12.
+ * @brief Assignment 12_dated.
+ * @reference https://www.geeksforgeeks.org/set-in-cpp-stl/
  * @reference https://en.wikipedia.org/wiki/Hash_table
  * @reference https://en.cppreference.com/w/cpp/filesystem/canonical
  * @reference https://stackoverflow.com/questions/1569726/difference-stdruntime-error-vs-stdexception
@@ -90,11 +92,12 @@ std::unique_ptr<StudentCourse> read(const std::string &path) {
  */
 int main() {
     // Personal test (test files are under "../assets/assignment_12")
-    // auto studentCourse1 = read("../assets/assignment_12/CSStudent_courses.txt");
-    // auto studentCourse2 = read("../assets/assignment_12/CSStudent_courses1.txt");
+    auto studentCourse1 = read("../assets/assignment_12/CSStudent_courses.txt");
+    auto studentCourse2 = read("../assets/assignment_12/CSStudent_courses1.txt");
 
-    auto studentCourse1 = read("CSStudent_courses.txt");
-    auto studentCourse2 = read("CSStudent_courses1.txt");
+    // Real test
+//    auto studentCourse1 = read("CSStudent_courses.txt");
+//    auto studentCourse2 = read("CSStudent_courses1.txt");
 
     studentCourse1->print(std::cout);
     std::cout << std::endl;
