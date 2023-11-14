@@ -49,9 +49,8 @@ public:
     /**
      * @brief Sets the value associated with the given key in the hashtable if the key does not
      * exist.
-     * @return the value associated with the given key if the key exists; a new integer vector if
-     * the key does not exist; note that the new integer vector is bound to the key before being
-     * returned.
+     * @return the value associated with the given key if the key exists; a new integer set if the
+     * key does not exist; note that the new integer set is bound to the key before being returned.
      */
     std::set<int> *setIfAbsent(const std::string &key);
 
